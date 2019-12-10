@@ -11,12 +11,13 @@ if (isset($_POST['title']) AND $_POST['title'] !='') {
 
     // echo '<pre>';
     // print_r($_FILES);
-    move_uploaded_file($_FILES['image']['tmp_name'], 'images/'.$_FILES['image']['name']);
+    //move_uploaded_file($_FILES['image']['tmp_name'], 'images/'.$_FILES['image']['name']);
 
     $conn = connect();
     $sql = "INSERT INTO info (title, descr_min, description, image) VALUES ('".$title."', '".$descrMin."', '".$description."', '".$_FILES['image']['name']."')";
 
     if (mysqli_query($conn, $sql)) {
+        setcookie('bd_create_success', 1, time()+10);
         header('Location: /');
         // echo "New record created successfully";
     } else {
