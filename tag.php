@@ -2,8 +2,7 @@
 require_once 'core/config.php';
 require_once 'core/function.php';
 $conn = connect();
-$data = selectMain($conn);
-$countPage = paginationCount($conn);
+$data = getPostFromTag($conn);
 $tag = getAllTags($conn);
 close($conn);
 ?>
@@ -27,10 +26,6 @@ for ($i=0; $i < count($data); $i++){
 }
 echo $out;
 
-for ($i=0; $i < $countPage; $i++){
-    $j = $i+1;
-    echo "<a href='/index.php?page={$i}' style='padding: 5px;'>{$j}</a>";
-}
 echo '<hr>';
 for ($i=0; $i < count($tag); $i++){
     echo "<a href='/tag.php?tag={$tag[$i]}' style='padding: 5px;'>{$tag[$i]}</a>";
