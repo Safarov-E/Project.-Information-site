@@ -22,7 +22,7 @@ for ($i=0; $i < count($data); $i++){
     $out .="<img src='/images/{$data[$i]['image']}' width='100'>";
     $out .="<h2>{$data[$i]['title']}</h2>";
     $out .="<p>{$data[$i]['descr_min']}</p>";
-    $out .="<p><a href='/arcticle.php?id='{$data[$i]['id']}'>Read more...</a></p>";
+    $out .='<p><a href="/arcticle.php?id='.$data[$i]['id'].'">Read more...</a></p>';
     $out.='<hr>';
 }
 echo $out;
