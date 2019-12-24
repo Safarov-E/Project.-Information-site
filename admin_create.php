@@ -1,8 +1,5 @@
 <?php
-require_once 'core/config.php';
-require_once 'core/function.php';
-?>
-<?php
+require_once('template/header.php');
 
 if (isset($_POST['title']) AND $_POST['title'] !='') {
     $title = $_POST['title'];
@@ -38,24 +35,40 @@ if (isset($_POST['title']) AND $_POST['title'] !='') {
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<h2>Create post</h2>
-<form action="" method="POST"  enctype="multipart/form-data">
-    <p>Title: <input type="text" name="title"></p>
-    <p>Min description:</p>
-    <textarea name="descr-min"></textarea>
-    <p>Description:</p>
-    <textarea name="description"></textarea>
-    <p>Photo: <input type="file" name="image"></p>
+<div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <h2>Create post</h2>
+    <form action="" method="POST"  enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" name="title" class="form-control" id="title">
+        </div>
+        <div class="form-group">
+            <label for="descr-min">Min description</label>
+            <input type="text" name="descr-min" class="form-control" id="descr-min">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" class="form-control" id="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">Photo</label>
+            <input type="file" name="image" class="form-control-file" id="image">
+        </div>
+        <div class="form-group">
+            <label for="tag">Tags</label>
+            <input type="text" name="tag" class="form-control" id="tag" placeholder="one,two">
+        </div>
+        <div class="form-group text-right">
+            <input type="submit" value="Add new article" class="btn btn-success">
+        </div>
+    </form>
+        </div>
+    </div>
+</div>
 
-    <p><input type="submit" value="add"></p>
-    <p>tags: <input type="text" name="tag"></p>
-</form>
+
+<?php 
+    require_once('template/footer.php');
+?>
